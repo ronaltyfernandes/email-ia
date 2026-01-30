@@ -5,7 +5,7 @@ from database.database import SessionLocal, engine, Base
 from database.models import Email
 from schemas import EmailCreate
 from ia.email_ia import classify_and_answer_email
-from schemas import EmailProcessRequest
+from schemas import EmailProcessRequest, EmailUpdateRequest
 
 
 Base.metadata.create_all(bind=engine)
@@ -115,3 +115,47 @@ def process_email(
         "category": ai_result["category"],
         "response": ai_result["response"]
     }
+
+
+@app.put("/emails/{email_id}", tags=["Emails"])
+def update_email(
+    email_id: int,
+    data: EmailUpdateRequest,
+    db: Session = Depends(get_db)
+):
+    email = db.query(Email).filter(Email.id == email_id).first()
+
+    if not email:
+        raise HTTPException(
+            status_code=404,
+            detail="Email não encontrado"
+        )
+
+    update_data = data.dict(exclude_unset=True)
+
+    for field, value in update_data.items():
+        setattr(email, field, value)
+
+    db.commit()
+    db.refresh(email)
+
+    return {
+        "message": "Email atualizado com sucesso",
+        "email": email
+    }
+
+
+@app.delete("/emails/{email_id}", tags=["Emails"])
+def delete_email(email_id: int, db: Session = Depends(get_db)):
+    email = db.query(Email).filter(Email.id == email_id).first()
+
+    if not email:
+        raise HTTPException(
+            status_code=404,
+            detail="Email não encontrado"
+        )
+
+    db.delete(email)
+    db.commit()
+
+    return {"message": "Email removido com sucesso"}
