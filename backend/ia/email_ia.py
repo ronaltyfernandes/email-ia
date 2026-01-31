@@ -6,7 +6,12 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+api_key = os.getenv("OPENAI_API_KEY")
+
+if not api_key:
+    raise RuntimeError("OPENAI_API_KEY não configurada")
+
+client = OpenAI(api_key=api_key)
 
 
 def classify_and_answer_email(content: str) -> dict:
