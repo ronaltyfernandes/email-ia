@@ -1,63 +1,87 @@
-🚀 Como rodar o projeto localmente
+# 📧 Email IA — Classificação e Respostas Inteligentes
 
-Este projeto é dividido em frontend (React) e backend (Python).
-Siga os passos abaixo para rodar cada parte.
+![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
+![Frontend](https://img.shields.io/badge/frontend-React%20%2B%20Vite-blue)
+![Backend](https://img.shields.io/badge/backend-FastAPI-green)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
-🖥️ Frontend (React)
+Projeto **full stack** que utiliza **Inteligência Artificial** para **classificar emails** e **sugerir respostas automáticas**, com frontend em **React** e backend em **FastAPI**.
 
-Acesse a pasta do frontend:
+---
 
-cd frontend
+## 🎥 Vídeo de Apresentação [▶️ Assista ao vídeo](./email-ia.mp4)
 
+## 🌐 Deploy
 
-Instale as dependências:
+O projeto já está disponível online:  
 
-npm install
-
-
-Inicie o servidor de desenvolvimento:
-
-npm run dev
+👉 **[Acesse aqui o Email IA](https://email-ia-production.up.railway.app/)** 🚀
 
 
-A aplicação estará disponível em:
+## 🧠 Funcionalidades
 
-http://localhost:5173
+- 📩 Envio de emails para análise
+- 🏷️ Classificação automática por categoria
+- 🤖 Geração de resposta sugerida por IA
+- 📋 Histórico de emails processados
+- 📄 Listagem com paginação
+- 📌 Copiar resposta sugerida com um clique
 
+---
 
-(ou outra porta indicada no terminal)
+## 🧩 Tecnologias Utilizadas
 
-🧠 Backend (Python)
+### 🖥️ Frontend
+- ⚛️ React
+- ⚡ Vite
+- 🎨 Tailwind CSS
+- 📡 Axios
 
-Acesse a pasta do backend:
+### 🧠 Backend
+- 🐍 Python
+- 🚀 FastAPI
+- 🔐 OpenAI API
+- 🗄️ SQLAlchemy
+- 🐘 PostgreSQL (produção)
+- 🧪 SQLite (desenvolvimento)
 
-cd backend
+---
 
+## 🚀 Como rodar o projeto localmente
 
-Crie e ative um ambiente virtual (recomendado):
+Este projeto é dividido em **Frontend** e **Backend**.  
+Ambos devem ser iniciados separadamente.
 
-Windows
+---
 
-python -m venv venv
-venv\Scripts\activate
+# 🖥️ Frontend — Interface Web
 
+![React](https://img.shields.io/badge/React-18-blue?logo=react)
+![Vite](https://img.shields.io/badge/Vite-fast-purple?logo=vite)
+![Tailwind](https://img.shields.io/badge/TailwindCSS-38bdf8?logo=tailwindcss)
 
-Linux / macOS
+Interface responsável pela **interação do usuário**, envio de emails e visualização das respostas.
 
-python3 -m venv venv
-source venv/bin/activate
+### ▶️ Como rodar o Frontend
 
+  ```bash
+  cd frontend
+  npm install
+  npm run dev
+  ```
 
-Instale as dependências:
+# 🧠 Backend — API Inteligente
+![React](https://img.shields.io/badge/Python-3.9+-yellow?logo=python)
+![React](https://img.shields.io/badge/FastAPI-0.95+-green?logo=fastapi)
+![React](https://img.shields.io/badge/PostgreSQL-15-blue?logo=postgresql)
 
-pip install -r requirements.txt
+Responsável pela classificação dos emails e geração das respostas automáticas via IA.
 
+### ▶️ Como rodar o Backend
 
-Inicie o servidor backend:
-
-uvicorn main:app --reload
-
-
-O backend ficará disponível em:
-
-http://127.0.0.1:8000
+  ```bash
+  cd backend
+  python -m venv venv venv\Scripts\activate
+  pip install -r requirements.txt
+  uvicorn main:app --reload
+  ```
