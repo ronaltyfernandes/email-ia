@@ -12,7 +12,7 @@ Projeto **full stack** que utiliza **Inteligência Artificial** para **classific
 ## 🎥 Demonstração
 
 <p align="center">
-  <img src="./docs/demo.gif" alt="Demonstração do projeto" width="700"/>
+  <img src="./email-ia.gif" alt="Demonstração do projeto" width="700"/>
 </p>
 
 
