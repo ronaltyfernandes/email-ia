@@ -1,56 +1,29 @@
-import { useState } from "react";
 import ResultModal from "../components/ResultModal";
-import { api } from "../services/api";
 import CardSendEmail from "../components/CardSendEmail";
+import { useEmailProcessor } from "../hooks";
 
 export function Home() {
-  const [content, setContent] = useState("");
-  const [category, setCategory] = useState(null);
-  const [responseText, setResponseText] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { state, processEmail, setContent, closeModal } = useEmailProcessor();
 
-  async function handleSubmit() {
-    if (!content.trim()) return;
-
-    setLoading(true);
-    setError(null);
-
-    try {
-      const response = await api.post("/process-email", {
-        content,
-      });
-
-      setCategory(response.data.category);
-      setResponseText(response.data.response);
-      setIsModalOpen(true);
-    } catch (err) {
-      setError("Erro ao processar email");
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  function handleCloseModal() {
-    setIsModalOpen(false);
-  }
+  const handleSubmit = () => {
+    processEmail(state.content);
+  };
 
   return (
     <>
       <CardSendEmail
-        content={content}
-        setContent={setContent}
-        handleSubmit={handleSubmit}
-        loading={loading}
-        error={error}
+        content={state.content}
+        onContentChange={setContent}
+        onSubmit={handleSubmit}
+        isLoading={state.loading}
+        error={state.error}
       />
 
       <ResultModal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        category={category}
-        responseText={responseText}
+        isOpen={state.isModalOpen}
+        onClose={closeModal}
+        category={state.category}
+        responseText={state.responseText}
       />
     </>
   );

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function ResultModal({
   isOpen,
@@ -7,25 +7,22 @@ export default function ResultModal({
   responseText,
 }) {
   const [copied, setCopied] = useState(false);
+  const timeoutRef = useRef(null);
 
   async function handleCopy() {
     try {
       await navigator.clipboard.writeText(responseText);
       setCopied(true);
 
+      // Limpa timeout anterior se existir
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+
       // Volta ao normal após 2s
-      setTimeout(() => setCopied(false), 2000);
+      timeoutRef.current = setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error("Erro ao copiar texto", err);
     }
   }
-
-  // Reset ao fechar o modal
-  useEffect(() => {
-    if (!isOpen) {
-      setCopied(false);
-    }
-  }, [isOpen]);
 
   // Fechar com ESC
   useEffect(() => {
@@ -33,9 +30,18 @@ export default function ResultModal({
       if (event.key === "Escape") onClose();
     }
 
-    window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, [onClose]);
+    if (isOpen) {
+      window.addEventListener("keydown", handleEsc);
+      return () => window.removeEventListener("keydown", handleEsc);
+    }
+  }, [isOpen, onClose]);
+
+  // Cleanup do timeout ao desmontar
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
 
   if (!isOpen) return null;
 
