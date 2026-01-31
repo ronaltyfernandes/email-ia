@@ -1,5 +1,6 @@
 from fastapi import FastAPI, Depends, Query, HTTPException
 from sqlalchemy.orm import Session
+from fastapi.middleware.cors import CORSMiddleware
 
 from database.database import SessionLocal, engine, Base
 from database.models import Email
@@ -15,6 +16,15 @@ app = FastAPI(
     version="1.0.0",
     description="API para classificação automática de emails e "
                 "sugestão de respostas usando IA"
+)
+
+# 🔓 CORS LIBERADO PARA TODOS (DEV)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],        # libera qualquer origem
+    allow_credentials=True,
+    allow_methods=["*"],        # GET, POST, PUT, DELETE, OPTIONS...
+    allow_headers=["*"],        # qualquer header
 )
 
 

@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+/* =========================
+   LIGHT MODE (padrão)
+========================= */
+
+@theme {
+  /* Brand */
+  --color-primary: #2563EB;
+  --color-primary-light: #3B82F6;
+  --color-primary-dark: #1E40AF;
+
+  --color-secondary: #16A34A;
+
+  /* Status */
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --color-info: #0EA5E9;
+
+  /* Layout */
+  --color-bg: #F1F5F9;
+  --color-bg-secondary: #FFFFFF;
+  --color-bg-tertiary: #F1F5F9;
+  --color-text: #0F172A;
+  --color-text-muted: #64748B;
+  --color-border: #E2E8F0;
+}
+
+/* =========================
+   DARK MODE
+========================= */
+.dark {
+  --color-bg: #0F172A;
+  --color-bg-secondary: #020617;
+  --color-bg-tertiary: #1E293B;
+  --color-text: #F8FAFC;
+  --color-text-muted: #94A3B8;
+  --color-border: #334155;
+}
