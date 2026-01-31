@@ -9,7 +9,12 @@ Projeto **full stack** que utiliza **Inteligência Artificial** para **classific
 
 ---
 
-## 🎥 Vídeo de Apresentação [▶️ Assista ao vídeo](./email-ia.mp4)
+## 🎥 Demonstração
+
+<p align="center">
+  <img src="./docs/demo.gif" alt="Demonstração do projeto" width="700"/>
+</p>
+
 
 ## 🌐 Deploy
 
