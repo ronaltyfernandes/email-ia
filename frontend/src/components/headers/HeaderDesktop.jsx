@@ -16,7 +16,7 @@ export function HeaderDesktop() {
         px-8
       "
     >
-      <div className="sombra-azul">▲utoU</div>
+      <div className="sombra-azul">Email-IA<</div>
       <nav className="">
         <NavLinkHeader end to="/" text="Home" />
         <NavLinkHeader to="/respostas" text="Respostas" />
