@@ -26,7 +26,7 @@ function Respostas() {
         Respostas de Emails
       </h1>
 
-      <Table columns={emailTableColumns} data={state.data} />
+      <Table columns={emailTableColumns} data={state.data ?? []} />
 
       <Pagination
         currentPage={state.page}

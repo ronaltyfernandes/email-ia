@@ -20,12 +20,12 @@ export function HeaderMobile() {
         bg-bg-secondary
         text-text
         flex justify-between
-        min-h-[75px]
+        min-h-18.75
         items-center
         px-8
       "
     >
-      <div className="sombra-azul">▲utoU</div>
+      <div className="sombra-azul">Email-ia</div>
 
       <div className="relative">
         <button

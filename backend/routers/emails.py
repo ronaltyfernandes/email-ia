@@ -1,7 +1,3 @@
-"""
-Router para endpoints de Email.
-Responsável apenas por HTTP, delegando lógica para serviços.
-"""
 from fastapi import APIRouter, Depends, Query, status
 from sqlalchemy.orm import Session
 from database.database import SessionLocal

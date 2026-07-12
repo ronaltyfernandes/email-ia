@@ -39,59 +39,47 @@ html{
   transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
+@property --blob1-x { syntax: '<percentage>'; initial-value: 20%; inherits: false; }
+@property --blob1-y { syntax: '<percentage>'; initial-value: 20%; inherits: false; }
+@property --blob2-x { syntax: '<percentage>'; initial-value: 80%; inherits: false; }
+@property --blob2-y { syntax: '<percentage>'; initial-value: 30%; inherits: false; }
+@property --blob3-x { syntax: '<percentage>'; initial-value: 50%; inherits: false; }
+@property --blob3-y { syntax: '<percentage>'; initial-value: 80%; inherits: false; }
+
 @keyframes gradientLight {
-  0% {
-    background: linear-gradient(
-      to bottom left,
-      #ff6b6b 0%,      /* cor principal */
-      #ff9f80 5%,      /* intermediária */
-      #ffe29f 15%,     /* intermediária suave */
-      var(--shadow-text-color) 70% /* branco domina */
-    );
+  0%, 100% {
+    --blob1-x: 15%; --blob1-y: 20%;
+    --blob2-x: 85%; --blob2-y: 25%;
+    --blob3-x: 50%; --blob3-y: 85%;
   }
-
-  25% {
-    background: linear-gradient(
-      to bottom left,
-      #43e97b 0%,      
-      #a8e6cf 5%,      
-      #d0f0c0 15%,     
-      var(--shadow-text-color) 70%
-    );
+  33% {
+    --blob1-x: 30%; --blob1-y: 70%;
+    --blob2-x: 70%; --blob2-y: 15%;
+    --blob3-x: 20%; --blob3-y: 40%;
   }
-
-  50% {
-    background: linear-gradient(
-      to bottom left,
-      #4facfe 0%,      
-      #7bdff2 5%,      
-      #c4fff9 15%,     
-      var(--shadow-text-color) 70%
-    );
-  }
-
-  75% {
-    background: linear-gradient(
-      to bottom left,
-      #ff6b6b 0%,      
-      #ff9f80 5%,      
-      #ffe29f 15%,     
-      var(--shadow-text-color) 70%
-    );
-  }
-
-  100% {
-    background: linear-gradient(
-      to bottom left,
-      #4facfe 0%,      
-      #7bdff2 5%,      
-      #c4fff9 15%,     
-      var(--shadow-text-color) 70%
-    );
+  66% {
+    --blob1-x: 75%; --blob1-y: 60%;
+    --blob2-x: 25%; --blob2-y: 75%;
+    --blob3-x: 80%; --blob3-y: 30%;
   }
 }
 
+:root {
+  --blob-alpha: 0.10;
+  --blob-blend: normal;
+}
+
+.dark {
+  --blob-alpha: 0.22;
+  --blob-blend: screen;
+}
+
 .animate-gradientLight {
-  animation: gradientLight 20s ease-in-out infinite;
-  background-size: 200% 200%;
+  background-color: var(--color-bg);
+  background-image:
+    radial-gradient(circle at var(--blob1-x) var(--blob1-y), rgb(108 92 231 / var(--blob-alpha)) 0%, transparent 45%),
+    radial-gradient(circle at var(--blob2-x) var(--blob2-y), rgb(116 185 255 / var(--blob-alpha)) 0%, transparent 45%),
+    radial-gradient(circle at var(--blob3-x) var(--blob3-y), rgb(0 184 148 / var(--blob-alpha)) 0%, transparent 45%);
+  background-blend-mode: var(--blob-blend);
+  animation: gradientLight 30s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }

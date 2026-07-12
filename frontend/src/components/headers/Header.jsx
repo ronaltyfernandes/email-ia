@@ -11,7 +11,6 @@ function Header() {
     const mq = window.matchMedia("(max-width: 767px)");
     const handle = (e) => setIsMobile(e.matches);
 
-    // set initial
     setIsMobile(mq.matches);
 
     // add listener (modern + fallback)
