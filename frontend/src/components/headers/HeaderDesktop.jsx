@@ -35,6 +35,11 @@ export function HeaderDesktop() {
         </div>
       </div>
 
+      <nav className="">
+        <NavLinkHeader end to="/" text="Home" />
+        <NavLinkHeader to="/respostas" text="Respostas" />
+      </nav>
+
       <ThemeSwitch
         toggleTheme={toggleTheme}
         isDark={theme === "dark"}
