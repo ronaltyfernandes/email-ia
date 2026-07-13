@@ -1,92 +1,138 @@
-# 📧 Email IA — Classificação e Respostas Inteligentes
-
-![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
-![Frontend](https://img.shields.io/badge/frontend-React%20%2B%20Vite-blue)
-![Backend](https://img.shields.io/badge/backend-FastAPI-green)
-![License](https://img.shields.io/badge/license-MIT-lightgrey)
-
-Projeto **full stack** que utiliza **Inteligência Artificial** para **classificar emails** e **sugerir respostas automáticas**, com frontend em **React** e backend em **FastAPI**.
-
----
-
-## 🎥 Demonstração
+# 📧 Email IA
 
 <p align="center">
-  <img src="./email-ia.gif" alt="Demonstração do projeto" width="700"/>
+
+![Frontend](https://img.shields.io/badge/React-Vite-61DAFB?logo=react)
+![Backend](https://img.shields.io/badge/FastAPI-Python-009688?logo=fastapi)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
+
 </p>
 
+<p align="center">
+Sistema Full Stack que utiliza <strong>Inteligência Artificial</strong> para classificar emails automaticamente e gerar respostas inteligentes em poucos segundos.
+</p>
 
-## 🌐 Deploy
+---
 
-O projeto já está disponível online:  
+# 🚀 Deploy
 
-👉 **[Acesse aqui o Email IA](https://email-ia-production.up.railway.app/)** 🚀
+<p align="center">
 
+### 👉 https://email-ia-production.up.railway.app/
 
-## 🧠 Funcionalidades
+</p>
+
+---
+
+# ✨ Funcionalidades
 
 - 📩 Envio de emails para análise
-- 🏷️ Classificação automática por categoria
-- 🤖 Geração de resposta sugerida por IA
+- 🤖 Classificação automática utilizando IA
+- 💬 Geração de respostas inteligentes
 - 📋 Histórico de emails processados
-- 📄 Listagem com paginação
-- 📌 Copiar resposta sugerida com um clique
+- 📄 Paginação
+- 📌 Copiar resposta com um clique
 
 ---
 
-## 🧩 Tecnologias Utilizadas
+# 📸 Demonstração
 
-### 🖥️ Frontend
-- ⚛️ React
-- ⚡ Vite
-- 🎨 Tailwind CSS
-- 📡 Axios
+| Home | Home dark |
+|---------------|-----------|
+| <img src="https://github.com/user-attachments/assets/eccbf47e-582e-4bff-9b20-139be057e70c" width="100%"> | <img src="https://github.com/user-attachments/assets/dd4033fd-7200-4934-8c8f-ffc88659fda7" width="100%"> |
 
-### 🧠 Backend
-- 🐍 Python
-- 🚀 FastAPI
-- 🔐 OpenAI API
-- 🗄️ SQLAlchemy
-- 🐘 PostgreSQL (produção)
-- 🧪 SQLite (desenvolvimento)
+Histórico 
+ <img src="https://github.com/user-attachments/assets/12152fd6-a2af-4e29-aefc-50bccfa6a795" width="100%"> 
 
 ---
 
-## 🚀 Como rodar o projeto localmente
+# 🛠 Tecnologias
 
-Este projeto é dividido em **Frontend** e **Backend**.  
-Ambos devem ser iniciados separadamente.
+| Frontend | Backend |
+|----------|----------|
+| React | FastAPI |
+| Vite | Python |
+| Tailwind CSS | SQLAlchemy |
+| Axios | PostgreSQL |
+| React Router | SQLite |
+| Lucide React | OpenAI API |
 
 ---
 
-# 🖥️ Frontend — Interface Web
+# 🖥️ Executando o Frontend
 
-![React](https://img.shields.io/badge/React-18-blue?logo=react)
-![Vite](https://img.shields.io/badge/Vite-fast-purple?logo=vite)
-![Tailwind](https://img.shields.io/badge/TailwindCSS-38bdf8?logo=tailwindcss)
+```bash
+cd frontend
 
-Interface responsável pela **interação do usuário**, envio de emails e visualização das respostas.
+npm install
 
-### ▶️ Como rodar o Frontend
+npm run dev
+```
 
-  ```bash
-  cd frontend
-  npm install
-  npm run dev
-  ```
+---
 
-# 🧠 Backend — API Inteligente
-![React](https://img.shields.io/badge/Python-3.9+-yellow?logo=python)
-![React](https://img.shields.io/badge/FastAPI-0.95+-green?logo=fastapi)
-![React](https://img.shields.io/badge/PostgreSQL-15-blue?logo=postgresql)
+# 🧠 Executando o Backend
 
-Responsável pela classificação dos emails e geração das respostas automáticas via IA.
+```bash
+cd backend
 
-### ▶️ Como rodar o Backend
+python -m venv venv
 
-  ```bash
-  cd backend
-  python -m venv venv venv\Scripts\activate
-  pip install -r requirements.txt
-  uvicorn main:app --reload
-  ```
+# Windows
+venv\Scripts\activate
+
+# Linux/Mac
+source venv/bin/activate
+
+pip install -r requirements.txt
+
+uvicorn main:app --reload
+```
+
+---
+
+# 📂 Estrutura do Projeto
+
+```
+Email IA
+│
+├── frontend
+│   ├── src
+│   ├── components
+│   ├── pages
+│   └── services
+│
+├── backend
+│   ├── app
+│   ├── routes
+│   ├── services
+│   └── database
+│
+└── README.md
+```
+
+---
+
+# 📌 Tecnologias Utilizadas
+
+### Frontend
+
+- React
+- Vite
+- Tailwind CSS
+- Axios
+
+### Backend
+
+- Python
+- FastAPI
+- SQLAlchemy
+- PostgreSQL
+- SQLite
+- OpenAI API
+
+---
+
+# 📄 Licença
+
+Este projeto está sob a licença **MIT**.
